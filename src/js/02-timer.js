@@ -1,6 +1,6 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import Notiflix from 'notiflix';
 
 const startTimerBtn = document.querySelector("button[data-start]")
 startTimerBtn.disabled = true
@@ -27,9 +27,8 @@ const options = {
 
     if (selectedDates[0] < new Date()) {
       startTimerBtn.disabled = true;
-    //   window.alert("Please choose a date in the future")
-        Notiflix.Notify.info('Cogito ergo sum');
-    } else {
+      Notiflix.Report.failure('Error', '"Please choose a date in the future"', 'Ok');
+      } else {
       startTimerBtn.disabled = false
       startTimerBtn.addEventListener("click", () => { changeTimerValue(selectedDates[0]) })
     }

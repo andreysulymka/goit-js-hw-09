@@ -70,7 +70,7 @@ function changeTimerValue(selectedTime) {
   timer.start()
 }
 
-function pad(value) {
+function addLeadingZero(value) {
   return String(value).padStart(2, "0");
 }
 
@@ -82,13 +82,13 @@ function convertMs(ms) {
   const day = hour * 24;
 
   // Remaining days
-  const days = pad(Math.floor(ms / day)*- 1);
+  const days = addLeadingZero(Math.floor(ms / day)*- 1);
   // Remaining hours
-  const hours = pad(Math.floor((ms % day) / hour) * -1);
+  const hours = addLeadingZero(Math.floor((ms % day) / hour) * -1);
   // Remaining minutes
-  const minutes = pad(Math.floor(((ms % day) % hour) / minute)* -1);
+  const minutes = addLeadingZero(Math.floor(((ms % day) % hour) / minute)* -1);
   // Remaining seconds
-  const seconds = pad(Math.floor((((ms % day) % hour) % minute) / second)* -1);
+  const seconds = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second)* -1);
 
   return { days, hours, minutes, seconds };
 }

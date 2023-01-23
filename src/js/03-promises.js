@@ -37,11 +37,11 @@ formRef.addEventListener('input', () => {
       }).catch(({ position, delay }) => {
         Notiflix.Notify.failure(`Rejected promise ${position} in ${delay}ms`);
         // console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-      // }).finally(() => {
-      //   formRef.reset();
-      //   delay = 0;
-      //   step = 0;
-      //   amount = 0;
+      }).finally(() => {
+        formRef.reset();
+        delay = 0;
+        step = 0;
+        amount = 0;
       });
       delay += step;
     };
